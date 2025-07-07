@@ -1,6 +1,6 @@
 # AI Photo Critique & Advisor
 
-[View Live Demo](https://ai-photo-critic.vercel.app/) · [Report Bug](https://github.com/reinaldosimoes/ai-photo-critic/issues) · [Request Feature](https://github.com/reinaldosimoes/ai-photo-critic/issues)
+[View Live Demo](https://photo-critic.reinaldo.pt) · [Report Bug](https://github.com/reinaldosimoes/ai-photo-critic/issues) · [Request Feature](https://github.com/reinaldosimoes/ai-photo-critic/issues)
 
 ![Screenshot of AI Photo Critique & Advisor](public/screenshot.png)
 

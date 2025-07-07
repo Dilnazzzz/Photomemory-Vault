@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local Environment Variables
+.env.local
+
+# Knowledge-base documents
+/data

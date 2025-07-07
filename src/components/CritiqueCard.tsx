@@ -8,7 +8,7 @@ interface CritiqueCardProps {
 export function CritiqueCard({ critique }: CritiqueCardProps) {
   return (
     <Card>
-      <CardContent className="prose critique-prose whitespace-pre-wrap text-muted-foreground font-sans text-base">
+      <CardContent className="prose critique-prose whitespace-pre-wrap text-muted-foreground font-sans text-base text-left">
         <ReactMarkdown>{critique}</ReactMarkdown>
       </CardContent>
     </Card>

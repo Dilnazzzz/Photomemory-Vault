@@ -66,27 +66,72 @@ export default function CritiquePage() {
     setIsLoading(true);
     setError("");
     setCritique("");
+
     const formData = new FormData();
     formData.append("image", file);
+
     try {
       const response = await fetch("/api/critique", {
         method: "POST",
         body: formData,
       });
+
       if (!response.ok) {
         throw new Error(
           "Failed to get critique from the server. Try again later."
         );
       }
-      const data = await response.json();
-      setCritique(data.critique);
+
+      const reader = response.body?.getReader();
+      if (!reader) {
+        throw new Error("Failed to read response stream");
+      }
+
+      const decoder = new TextDecoder();
+      let buffer = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop() || "";
+
+        for (const line of lines) {
+          if (line.startsWith("data: ")) {
+            const data = line.slice(6);
+
+            if (data === "[DONE]") {
+              setIsLoading(false);
+              return;
+            }
+
+            try {
+              const parsed = JSON.parse(data);
+              if (parsed.critique) {
+                setCritique((prev) => prev + parsed.critique);
+              }
+              if (parsed.error) {
+                setError(parsed.error);
+                setIsLoading(false);
+                return;
+              }
+            } catch {
+              // Skip invalid JSON
+            }
+          }
+        }
+      }
+
+      setIsLoading(false);
     } catch (err: unknown) {
       if (err instanceof Error) {
         setError(err.message);
       } else {
         setError("An unknown error occurred.");
       }
-    } finally {
       setIsLoading(false);
     }
   };

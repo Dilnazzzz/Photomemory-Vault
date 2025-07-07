@@ -54,7 +54,11 @@ export async function POST(req: NextRequest) {
     const imageBase64 = Buffer.from(imageBuffer).toString("base64");
 
     // Initialize models and database connections
-    const llm = new ChatOpenAI({ modelName: "gpt-4o", temperature: 0.5 });
+    const llm = new ChatOpenAI({
+      modelName: "gpt-4o",
+      temperature: 0.5,
+      streaming: true,
+    });
     const pinecone = new Pinecone();
     const pineconeIndex = pinecone.Index(process.env.PINECONE_INDEX!);
     const embeddings = new OpenAIEmbeddings({
@@ -114,10 +118,43 @@ Address the user directly about their photo. Do not mention the "description" or
       new StringOutputParser(),
     ]);
 
-    // Invoke the chain and return the result
-    const result = await ragChain.invoke(imageDescription);
+    // Create a streaming response
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        try {
+          // Stream the critique
+          const stream = await ragChain.stream(imageDescription);
 
-    return NextResponse.json({ critique: result });
+          for await (const chunk of stream) {
+            controller.enqueue(
+              encoder.encode(`data: ${JSON.stringify({ critique: chunk })}\n\n`)
+            );
+          }
+
+          controller.enqueue(encoder.encode(`data: [DONE]\n\n`));
+          controller.close();
+        } catch (error) {
+          console.error("Streaming error:", error);
+          controller.enqueue(
+            encoder.encode(
+              `data: ${JSON.stringify({
+                error: "Failed to generate critique",
+              })}\n\n`
+            )
+          );
+          controller.close();
+        }
+      },
+    });
+
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache",
+        Connection: "keep-alive",
+      },
+    });
   } catch (error) {
     console.error(error);
     return NextResponse.json(

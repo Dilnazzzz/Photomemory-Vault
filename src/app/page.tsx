@@ -32,10 +32,10 @@ export default function CritiquePage() {
           if (idx < loadingMessages.length - 1) {
             return idx + 1;
           } else {
-            return idx; // Stay on the last message
+            return idx;
           }
         });
-      }, 6000); // 6 seconds per message
+      }, 6000);
     } else {
       if (loadingIntervalRef.current) {
         clearInterval(loadingIntervalRef.current);

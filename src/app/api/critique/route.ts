@@ -27,7 +27,7 @@ const ratelimit = new Ratelimit({
 });
 
 export async function POST(req: NextRequest) {
-  // === RATE LIMITING LOGIC ===
+  // Rate limiting logic
   const forwardedFor = req.headers.get("x-forwarded-for");
   const ip = (forwardedFor ? forwardedFor.split(",")[0] : null) ?? "127.0.0.1";
   const { success } = await ratelimit.limit(ip);
@@ -37,7 +37,6 @@ export async function POST(req: NextRequest) {
       { status: 429 }
     );
   }
-  // === END RATE LIMITING LOGIC ===
 
   try {
     const formData = await req.formData();
@@ -54,7 +53,7 @@ export async function POST(req: NextRequest) {
     const imageBuffer = await imageFile.arrayBuffer();
     const imageBase64 = Buffer.from(imageBuffer).toString("base64");
 
-    // === 1. Initialize models and database connections ===
+    // Initialize models and database connections
     const llm = new ChatOpenAI({ modelName: "gpt-4o", temperature: 0.5 });
     const pinecone = new Pinecone();
     const pineconeIndex = pinecone.Index(process.env.PINECONE_INDEX!);
@@ -62,7 +61,7 @@ export async function POST(req: NextRequest) {
       modelName: "text-embedding-3-small",
     });
 
-    // === 2. Multimodal Step: Analyze the image to get a description ===
+    // Multimodal step: Analyze the image to get a description
     const visionResponse = await llm.invoke([
       {
         type: "human",
@@ -80,13 +79,13 @@ export async function POST(req: NextRequest) {
     ]);
     const imageDescription = visionResponse.content as string;
 
-    // === 3. RAG Step: Retrieve relevant principles from Pinecone ===
+    // RAG step: Retrieve relevant principles from Pinecone
     const vectorStore = await PineconeStore.fromExistingIndex(embeddings, {
       pineconeIndex,
     });
     const retriever = vectorStore.asRetriever();
 
-    // === 4. Generation Step: Create the final prompt and chain ===
+    // Generation step: Create the final prompt and chain
     const critiqueTemplate = `You are an expert photography critic providing encouraging, constructive feedback directly to a user about their photo.
 
 You have been provided with a detailed description of the photo and relevant photography principles to guide your analysis.
@@ -115,7 +114,7 @@ Address the user directly about their photo. Do not mention the "description" or
       new StringOutputParser(),
     ]);
 
-    // === 5. Invoke the chain and return the result ===
+    // Invoke the chain and return the result
     const result = await ragChain.invoke(imageDescription);
 
     return NextResponse.json({ critique: result });

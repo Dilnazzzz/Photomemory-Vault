@@ -15,14 +15,9 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  // Main SEO Title - Appears in browser tabs and search results
   title: "AI Photo Critique & Advisor | A Project by Reinaldo Simoes",
-
-  // SEO Description - A concise summary for search engine results (around 160 characters)
   description:
     "An open-source AI tool that provides expert photography critiques using GPT-4o and a RAG system. Explore the project built with Next.js, LangChain, and Pinecone.",
-
-  // Keywords for search engines to understand the page content
   keywords: [
     "AI",
     "Photography",
@@ -37,22 +32,17 @@ export const metadata: Metadata = {
     "OpenAI",
     "GPT-4o",
   ],
-
-  // Information about the author
   authors: [{ name: "Reinaldo Simoes", url: "https://reinaldo.pt" }],
   creator: "Reinaldo Simoes",
-
-  // --- Open Graph (og) metadata for social media sharing (Facebook, LinkedIn, etc.) ---
   openGraph: {
     title: "AI Photo Critique & Advisor",
     description:
       "I built an AI tool that gives expert feedback on photo composition and lighting. Check out the live demo and the open-source code.",
-    url: "https://photo-critic.reinaldo.pt", // Replace with your final deployed URL
+    url: "https://photo-critic.reinaldo.pt",
     siteName: "Reinaldo Simoes | Portfolio",
-    // You should create and upload an image (1200x630px) to use for social sharing previews
     images: [
       {
-        url: "https://www.reinaldo.pt/og-image-photo-critic.png", // Replace with a URL to your OG image
+        url: "https://www.reinaldo.pt/og-image-photo-critic.png",
         width: 1200,
         height: 630,
         alt: "A preview of the AI Photo Critique application interface.",
@@ -61,23 +51,17 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-
-  // --- Twitter-specific metadata ---
   twitter: {
     card: "summary_large_image",
     title: "AI Photo Critique & Advisor by Reinaldo Simoes",
     description:
       "An open-source AI tool that provides expert photography critiques using GPT-4o, LangChain, and a RAG system.",
-    creator: "@your_twitter_handle", // Replace with your Twitter handle if you have one
-    images: ["https://www.reinaldo.pt/twitter-image-photo-critic.png"], // Replace with a URL to your Twitter preview image
+    creator: "@your_twitter_handle",
+    images: ["https://www.reinaldo.pt/twitter-image-photo-critic.png"],
   },
-
-  // --- Other useful metadata ---
-  // Helps search engines find your sitemap and defines the canonical URL
   alternates: {
-    canonical: "https://photo-critic.reinaldo.pt", // Replace with your final deployed URL
+    canonical: "https://photo-critic.reinaldo.pt",
   },
-  // Tells crawlers where to find your robots.txt file
   robots: {
     index: true,
     follow: true,

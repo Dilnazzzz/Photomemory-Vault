@@ -61,10 +61,7 @@ export function PhotoUploadCard({
       role="button"
       aria-label="Upload photo by clicking or dragging"
     >
-      <Label
-        htmlFor="photo-upload"
-        className="text-xl font-bold mb-2 font-sans flex items-center gap-2"
-      >
+      <Label className="text-xl font-bold mb-2 font-sans flex items-center gap-2">
         Upload your photo
       </Label>
       <Input
@@ -75,6 +72,8 @@ export function PhotoUploadCard({
         onChange={handleChange}
         className="hidden"
         disabled={isLoading}
+        tabIndex={-1}
+        style={{ display: "none" }}
       />
       <span className="text-muted-foreground text-sm">
         Drag & drop an image here, or click to select

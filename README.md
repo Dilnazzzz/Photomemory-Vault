@@ -6,8 +6,6 @@
 
 ## About This Project
 
-Welcome! This project is open-source and built for the community. Whether you're a photographer, developer, or just curious about AI, you're invited to explore, use, and help improve this app. We believe in learning together and making great tools accessible to everyone.
-
 This is a web app that lets you upload a photo and get a thoughtful, expert-level critique—powered by AI. Instead of generic tips, you'll get feedback based on real photography principles, thanks to a smart system that combines image analysis with a curated knowledge base.
 
 The app is built with modern tools and includes features like rate limiting to keep things fair and sustainable for everyone.
@@ -31,8 +29,6 @@ The app is built with modern tools and includes features like rate limiting to k
 - **Vercel** (deployment)
 
 ## Getting Started
-
-Want to run this locally? Here's how:
 
 ### What You'll Need
 

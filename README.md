@@ -82,7 +82,7 @@ Not sure where to start? Check out the [issues page](https://github.com/reinaldo
 
 ## License
 
-MIT — see the LICENSE file for details.
+MIT — see the [LICENSE](https://github.com/reinaldosimoes/ai-photo-critic/blob/main/LICENSE) file for details.
 
 ## Contact
 

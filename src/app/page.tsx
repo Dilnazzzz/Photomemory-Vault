@@ -150,7 +150,7 @@ export default function CritiquePage() {
             <Camera className="w-8 h-8 text-primary mb-4" />
 
             <h1 className="text-3xl font-bold mb-2 tracking-tight flex items-center gap-2">
-              AI Photo Critique & Advisor
+              AI Photo Critique
             </h1>
             <p className="text-muted-foreground mb-8">
               Upload a photo to get a detailed composition and lighting critique

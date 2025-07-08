@@ -15,7 +15,7 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "AI Photo Critique & Advisor | A Project by Reinaldo Simoes",
+  title: "AI Photo Critique",
   description:
     "An open-source AI tool that provides expert photography critiques using GPT-4o and a RAG system. Explore the project built with Next.js, LangChain, and Pinecone.",
   keywords: [
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Reinaldo Simoes", url: "https://reinaldo.pt" }],
   creator: "Reinaldo Simoes",
   openGraph: {
-    title: "AI Photo Critique & Advisor",
+    title: "AI Photo Critique",
     description:
       "I built an AI tool that gives expert feedback on photo composition and lighting. Check out the live demo and the open-source code.",
     url: "https://photo-critic.reinaldo.pt",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Photo Critique & Advisor by Reinaldo Simoes",
+    title: "AI Photo Critique",
     description:
       "An open-source AI tool that provides expert photography critiques using GPT-4o, LangChain, and a RAG system.",
     creator: "@your_twitter_handle",

@@ -1,8 +1,8 @@
-# AI Photo Critique & Advisor
+# AI Photo Critique
 
 [View Live Demo](https://photo-critic.reinaldo.pt) · [Report Bug](https://github.com/reinaldosimoes/ai-photo-critic/issues) · [Request Feature](https://github.com/reinaldosimoes/ai-photo-critic/issues)
 
-![Screenshot of AI Photo Critique & Advisor](public/screenshot.png)
+![Screenshot of AI Photo Critique](public/screenshot.png)
 
 ## About This Project
 

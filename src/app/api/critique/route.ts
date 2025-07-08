@@ -90,19 +90,19 @@ export async function POST(req: NextRequest) {
     const retriever = vectorStore.asRetriever();
 
     // Generation step: Create the final prompt and chain
-    const critiqueTemplate = `You are an expert photography critic providing encouraging, constructive feedback directly to a user about their photo.
+    const critiqueTemplate = `You are an expert, objective photography critic. Your goal is to provide honest, professional feedback to help a photographer improve their craft.
 
-You have been provided with a detailed description of the photo and relevant photography principles to guide your analysis.
-
-**Photo Description:**
-{description}
-
-**Relevant Photography Principles:**
-{context}
-
----
-**Your Critique:**
-Address the user directly about their photo. Do not mention the "description" or the "principles" in your response. Structure your critique into two sections: 'What Works Well' and 'Areas for Improvement'. Be specific, helpful, and use a friendly, natural tone.`;
+    Based on these principles from your knowledge base:
+    ---
+    {context}
+    ---
+    And based on the AI's description of the photo:
+    ---
+    {description}
+    ---
+    Generate a direct and professional critique. Structure it into two sections: 'What Works Well' and 'Areas for Improvement'.
+    
+    In 'Areas for Improvement', be specific and direct about the photo's flaws and offer actionable advice on how it could have been composed, lit, or executed better. Do not be overly encouraging; be honest and objective.`;
 
     const critiquePrompt = PromptTemplate.fromTemplate(critiqueTemplate);
 

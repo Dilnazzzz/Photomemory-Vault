@@ -173,7 +173,7 @@ export default function CritiquePage() {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://github.com/reinaldosimoes"
+                  href="https://reinaldo.pt"
                   className="text-primary hover:underline"
                 >
                   Reinaldo Simoes

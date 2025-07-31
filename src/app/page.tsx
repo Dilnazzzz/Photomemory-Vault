@@ -149,13 +149,38 @@ export default function CritiquePage() {
           >
             <Camera className="w-8 h-8 text-primary mb-4" />
 
-            <h1 className="text-3xl font-bold mb-2 tracking-tight flex items-center gap-2">
-              AI Photo Critique
-            </h1>
-            <p className="text-muted-foreground mb-8">
-              Upload a photo to get a detailed composition and lighting critique
-              based on a curated knowledge base.
-            </p>
+            <div className="flex flex-col gap-4 mb-8">
+              <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
+                AI Photo Critique
+              </h1>
+
+              <p className="text-muted-foreground">
+                Upload a photo to get a detailed composition and lighting
+                critique based on a curated knowledge base.
+              </p>
+
+              <p className="text-muted-foreground text-sm">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/reinaldosimoes/ai-photo-critic"
+                  className="text-primary hover:underline"
+                >
+                  View on GitHub
+                </a>
+                {" • "}
+                Created by{" "}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/reinaldosimoes"
+                  className="text-primary hover:underline"
+                >
+                  Reinaldo Simoes
+                </a>
+              </p>
+            </div>
+
             <CritiqueForm
               file={file}
               previewUrl={previewUrl}

@@ -15,9 +15,9 @@ const karla = Karla({
 });
 
 export const metadata: Metadata = {
-  title: "AI Photo Critique",
+  title: "PhotoMemory Vault",
   description:
-    "An open-source AI tool that provides expert photography critiques using GPT-4o and a RAG system. Explore the project built with Next.js, LangChain, and Pinecone.",
+    "Photographer Session Intelligence System: image critique, session history, semantic recall, and rubric scoring — powered by GPT-4o and Postgres/pgvector.",
   keywords: [
     "AI",
     "Photography",
@@ -25,42 +25,29 @@ export const metadata: Metadata = {
     "Composition",
     "Lighting",
     "LangChain",
-    "RAG",
-    "Portfolio",
-    "Reinaldo Simoes",
+    "Postgres",
+    "pgvector",
     "Next.js",
     "OpenAI",
     "GPT-4o",
   ],
-  authors: [{ name: "Reinaldo Simoes", url: "https://reinaldo.pt" }],
-  creator: "Reinaldo Simoes",
   openGraph: {
-    title: "AI Photo Critique",
+    title: "PhotoMemory Vault",
     description:
-      "I built an AI tool that gives expert feedback on photo composition and lighting. Check out the live demo and the open-source code.",
-    url: "https://photo-critic.reinaldo.pt",
-    siteName: "Reinaldo Simoes | Portfolio",
-    images: [
-      {
-        url: "https://www.reinaldo.pt/og-image-photo-critic.png",
-        width: 1200,
-        height: 630,
-        alt: "A preview of the AI Photo Critique application interface.",
-      },
-    ],
+      "Image critique with session history and semantic recall (pgvector).",
+    url: "",
+    siteName: "PhotoMemory Vault",
+    images: [],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Photo Critique",
+    title: "PhotoMemory Vault",
     description:
-      "An open-source AI tool that provides expert photography critiques using GPT-4o, LangChain, and a RAG system.",
-    creator: "@your_twitter_handle",
-    images: ["https://www.reinaldo.pt/twitter-image-photo-critic.png"],
-  },
-  alternates: {
-    canonical: "https://photo-critic.reinaldo.pt",
+      "Photographer Session Intelligence System — GPT‑4o + Postgres/pgvector.",
+    creator: "",
+    images: [],
   },
   robots: {
     index: true,
